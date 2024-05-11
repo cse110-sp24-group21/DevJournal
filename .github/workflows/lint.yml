@@ -1,6 +1,7 @@
-name: Lint
+name: Lint  # name of the test
 
 on:
+  # the Github Action will activate "on" the event that you "push" to the repo
   # Trigger the workflow on push or pull request,
   # but only for the main branch
   push:
@@ -10,14 +11,15 @@ on:
     branches:
       - main
 
-jobs:
-  run-linters:
+jobs:  # the things being executed
+  run-linters:  # the name of your status check
     name: Run linters
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # which device on Github's server that you are running the Actions on
+
 
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
+      - name: Check out Git repository  # using version 4 of Actions
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v1
@@ -28,7 +30,7 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-      - name: Run linters
+      - name: Run linters  # the actual linting line
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
