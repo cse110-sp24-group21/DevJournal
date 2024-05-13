@@ -19,7 +19,7 @@ jobs:  # the things being executed
 
       - name: Lint Code Base
         uses: github/super-linter@v4
-         env:
+        env:
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_HTML: true
