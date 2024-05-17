@@ -6,6 +6,7 @@
     <title>Developer Journal</title>
     <!-- External Files -->
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/tasks.css">
 </head>
 <body id="main-page">
     <nav>
@@ -18,9 +19,58 @@
         </ul>
     </nav>
     <main>
-        <h1>
-            Tasks
-        </h1>
+        <section id="left-section">
+            <div id="make-task">
+                <h1>Make a task</h1>
+                <h3>Date</h3>
+                <textarea></textarea>
+                <h3>Title</h3>
+                <textarea></textarea>
+                <h3>Description</h3>
+                <textarea></textarea>
+                <h3>Tags</h3>
+            </div>
+        </section>
+        <section id="right-section">
+            <ul id="list">
+                <li class="task">
+                    <button class="dropdown-btn">
+                        <img src="./assets/triangle-right-black.svg" alt="Task Icon" class="task-icon light-mode-icon right-icon">
+                    </button>
+                    <input class="checkbox" type="checkbox">
+                    <h3 class="taskName">Task 1</h5>
+                    <p class="due-date">Apr 24, 2024</p>
+                    <p class="description" style="display: none;">This is an example of when the dropdown is pressed and the description is shown.</p>
+                </li>
+                <li class="task">
+                    <button class="dropdown-btn">
+                        <img src="./assets/triangle-right-black.svg" alt="Task Icon" class="task-icon light-mode-icon down-icon">
+                    </button>
+                    <input class="checkbox" type="checkbox">
+                    <h3 class="taskName">Task 2</h5>
+                    <p class="due-date">Apr 24, 2024</p>
+                    <p class="description">This is an example of when the dropdown is pressed and the description is shown.</p>
+                </li>
+                <li class="task">
+                    <button class="dropdown-btn">
+                        <img src="./assets/triangle-right-black.svg" alt="Task Icon" class="task-icon light-mode-icon down-icon">
+                    </button>
+                    <input class="checkbox" type="checkbox">
+                    <h3 class="taskName">Task 3</h5>
+                    <p class="due-date">Apr 24, 2024</p>
+                    <p class="description">This is an example of when the dropdown is pressed and the description is shown. How about lot of text.......................................................... </p>
+                </li>
+                <li class="task">
+                    <button class="dropdown-btn">
+                        <img src="./assets/triangle-right-black.svg" alt="Task Icon" class="task-icon light-mode-icon down-icon">
+                    </button>
+                    <input class="checkbox" type="checkbox"> 
+                    <h3 class="taskName">Task 4</h5>
+                    <p class="due-date">Apr 24, 2024</p>
+                    <p class="description">Not much text, but a little more than usual, and even a little more</p>
+                </li>
+            </ul>
+        </section>
     </main>
 </body>
 </html>
