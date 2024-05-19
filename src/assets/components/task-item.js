@@ -13,14 +13,14 @@ class TaskItem extends HTMLElement {
       // Store the element styles in a <style> block, needed bc of the shadow DOM
       const styles = document.createElement('style');
       styles.innerHTML = `
-        .price {
+        .description {
           color: green;
           font-size: 1.8em;
           font-weight: bold;
           margin: 0;
         }
   
-        .product {
+        .task {
           align-items: center;
           background-color: white;
           border-radius: 5px;

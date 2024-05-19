@@ -6,7 +6,7 @@
 import { storage } from './storage.js';
 
 let items; // The variable we'll use to add our array of obejcts we fetch
-let itemsURL = 'assets/json/tasks.json'; // the URL to fetch from
+let itemsURL = 'assets/json/tasklist.json'; // the URL to fetch from
 
 // Bind the init() function to run once the page loads
 window.addEventListener('DOMContentLoaded', init);

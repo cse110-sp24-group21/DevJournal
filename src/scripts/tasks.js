@@ -2,8 +2,9 @@
 
 import { storage } from './storage.js';
 
-const tasksContainer = document.getElementById("tasks-app");
+const tasksContainer = document.getElementById("task-list");
 const addTaskButton = tasksContainer.querySelector(".add-task");
+const deleteTaskButton = tasksContainer.querySelector(".delete-task");
 let taskCount = 0;
 
 getTasks().forEach(task => {
@@ -15,20 +16,20 @@ getTasks().forEach(task => {
 
 document.addEventListener("keydown", (event) => deleteAllTasks(event));
 
-//UI button change feature
-addTaskButton.addEventListener("mouseover", ()=> {
-    addTaskButton.textContent = "+";
-});
-addTaskButton.addEventListener("mouseout", () => { 
-    addTaskButton.textContent = "Add Task"; 
-});
-
 addTaskButton.addEventListener("click", () => addTask());
 
 //Creates new task elements
 function createTaskElement(id, content){
-
-    const element = document.createElement("textarea");
+  listContainer.innerHTML = ''; // empty list
+          
+  listContainer.innerHTML += '<li class="task">'
+  + '<button class="dropdown-btn" onclick="toggleIcon(this)"><img src="images/triangle-right-black.svg" alt="Task Icon "class="task-icon light-mode-icon right-icon" onclick="toggleIcon(this)"></button>'; 
+  + '<input class="checkbox" type="checkbox">'
+  + '<h3 class="taskName">' + taskData.data[i].title + '</h3>'
+  + '<p class="due-date">'+ taskData.data[i].dueDate + '</p>'
+  + '<p class="description" style="display: none;">' + taskData.data[i].details + '</p>'
+  + '</li>';
+    const task = document.createElement("textarea");
 
     element.classList.add("task");
     element.value = content;
