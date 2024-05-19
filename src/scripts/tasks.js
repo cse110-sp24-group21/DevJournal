@@ -121,8 +121,8 @@ function addTask(){
   if (!taskElement) {
     tasklist.push(taskElement);
   }
-  localStorage.setItem('tasklist', JSON.stringify(tasklist));
-  console.log(localStorage)
+  saveTasks(tasklist);
+  console.log(localStorage);
 }
 
 //Updates Task with new given content
@@ -146,7 +146,7 @@ function getTask(tasks, id) {
 
 //Saves all tasks to local storage
 function saveTasks(tasks){
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('tasklist', JSON.stringify(tasks));
 }
 
 //Deletes a single specific task with double click
@@ -158,14 +158,9 @@ function deleteTask(id, element){
 }
 
 //deletes all tasks with crt + shift + D
-function deleteSelectedTasks(event){
-    if (event.ctrlKey && event.shiftKey && event.key === 'D') {
-        if(confirm("Do you want to delete all tasks")){
-            for(var i = 0; i < taskCount; i++){
-                tasksContainer.removeChild(tasksContainer.lastChild);
-            }
-            saveTasks(JSON.parse("[]"));
-            taskCount = 0;
-        }
+function deleteSelectedTasks(event){ 
+    for(var i = 0; i < taskCount; i++){
+        tasksContainer.removeChild(tasksContainer.lastChild);
     }
+    saveTasks(JSON.parse("[]"));
 }
