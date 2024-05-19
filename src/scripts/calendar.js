@@ -1,4 +1,4 @@
-let events = [];
+let daysArray = [];
 
 // Function to generate a range of 
 // years for the year select input
@@ -98,13 +98,6 @@ function showCalendar(month, year) {
 				) {
 					cell.className = "date-picker selected";
 				}
-				if (hasEventOnDate(date, month, year)) {
-					cell.classList.add("event-marker");
-					cell.appendChild(
-						createEventTooltip(date, month, year)
-				);
-				}
-
 				row.appendChild(cell);
 				date++;
 			}
@@ -115,7 +108,7 @@ function showCalendar(month, year) {
 
 // Get events on specific date
 function getEventsOnDate(date, month, year) {
-	return events.filter(function (event) {
+	return daysArray.filter(function (event) {
 		let eventDate = new Date(event.date);
 		return (
 			eventDate.getDate() === date &&
