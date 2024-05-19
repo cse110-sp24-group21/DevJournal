@@ -38,7 +38,6 @@ $dataHead += "</tr>";
 document.getElementById("thead-month").innerHTML = $dataHead;
 
 monthAndYear = document.getElementById("monthAndYear");
-showCalendar(currentMonth, currentYear);
 
 // Function to navigate between next/prev months
 function next() {
@@ -106,27 +105,10 @@ function showCalendar(month, year) {
 	}
 }
 
-// Get events on specific date
-function getEventsOnDate(date, month, year) {
-	return daysArray.filter(function (event) {
-		let eventDate = new Date(event.date);
-		return (
-			eventDate.getDate() === date &&
-			eventDate.getMonth() === month &&
-			eventDate.getFullYear() === year
-		);
-	});
-}
-
-// Check if there are events on specific date
-function hasEventOnDate(date, month, year) {
-	return getEventsOnDate(date, month, year).length > 0;
-}
+// display calendar
+showCalendar(currentMonth, currentYear);
 
 // Function to get the number of days in a month
 function daysInMonth(iMonth, iYear) {
 	return 32 - new Date(iYear, iMonth, 32).getDate();
 }
-
-// Call the showCalendar function initially to display the calendar
-showCalendar(currentMonth, currentYear);

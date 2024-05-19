@@ -24,7 +24,12 @@ body {
     height: 100vh;
 }
 
+.right-container {
+    padding: 15px;
+}
+
 .left-container h3 {
+    padding-top: 10px;
     text-align: center;
 }
 
