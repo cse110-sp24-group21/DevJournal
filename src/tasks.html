@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Journal</title>
+    <!-- External Files -->
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/tasks.css">
+      <!-- Web Components -->
+    <script src="./components/task-element.js" type="module"></script>
+
+    <!-- Main Scripts -->
+    <script src="./scripts/storage.js" type="module"></script>
+    <script src="./scripts/tasks.js" type="module"></script>
+</head>
+<body id="main-page">
+    <nav>
+        <ul id="sidebar">
+            <img src="./assets/icons/journal.svg" alt="Journal Icon" id="journal-icon"/>
+            <a class="navlink" href="./home.html">Home</a>
+            <a class="navlink" href="./calendar.html">Calendar</a>
+            <a class="navlink" href="./tasks.html">Tasks</a>
+            <a class="navlink" href="./entries.html">Entries</a>
+        </ul>
+    </nav>
+    <main>
+        <section id="left-section">
+            <div id="make-task">
+                <h1>Make a task</h1>
+                <h3>Due Date</h3>
+                <input type="date" id="input-date"/>
+                <h3>Title</h3>
+                <textarea id="input-title"></textarea>
+                <h3>Description</h3>
+                <textarea id="input-description"></textarea>
+                <h3>Tags</h3>
+                <textarea id="input-tags"></textarea>
+                <button id="add-task">Add Task</button>
+                <button id="delete-task">Delete Task</button>
+            </div>
+        </section>
+        <section id="right-section">
+            <ul id="task-list">
+                <li class="task">
+                    <button class="dropdown-btn">
+                        <img src="./assets/icons/triangle-right-black.svg" alt="Task Icon" class="task-icon light-mode-icon right-icon">
+                    </button>
+                    <input class="checkbox" type="checkbox">
+                    <h3 class="task-name">Task 1</h3>
+                    <p class="due-date">Apr 24, 2024</p>
+                    <p class="description" style="display: none;">This is an example of when the dropdown is pressed and the description is shown.</p>
+                </li>
+                <li class="task">
+                    <button class="dropdown-btn">
+                        <img src="./assets/icons/triangle-right-black.svg" alt="Task Icon" class="task-icon light-mode-icon down-icon">
+                    </button>
+                    <input class="checkbox" type="checkbox">
+                    <h3 class="task-name">Task 2</h3>
+                    <p class="due-date">Apr 24, 2024</p>
+                    <p class="description">This is an example of when the dropdown is pressed and the description is shown.</p>
+                </li>
+                <li class="task">
+                    <button class="dropdown-btn">
+                        <img src="./assets/icons/triangle-right-black.svg" alt="Task Icon" class="task-icon light-mode-icon down-icon">
+                    </button>
+                    <input class="checkbox" type="checkbox">
+                    <h3 class="task-name">Task 3</h3>
+                    <p class="due-date">Apr 24, 2024</p>
+                    <p class="description">This is an example of when the dropdown is pressed and the description is shown. How about lot of text.......................................................... </p>
+                </li>
+                <li class="task">
+                    <button class="dropdown-btn">
+                        <img src="./assets/icons/triangle-right-black.svg" alt="Task Icon" class="task-icon light-mode-icon down-icon">
+                    </button>
+                    <input class="checkbox" type="checkbox"> 
+                    <h3 class="task-name">Task 4</h3>
+                    <p class="due-date">Apr 24, 2024</p>
+                    <p class="description">Not much text, but a little more than usual, and even a little more</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
