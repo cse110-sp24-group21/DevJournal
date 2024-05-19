@@ -7,6 +7,12 @@
     <!-- External Files -->
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/tasks.css">
+      <!-- Web Components -->
+    <script src="./components/task-element.js" type="module"></script>
+
+    <!-- Main Scripts -->
+    <script src="./scripts/storage.js" type="module"></script>
+    <script src="./scripts/tasks.js" type="module"></script>
 </head>
 <body id="main-page">
     <nav>
@@ -22,14 +28,16 @@
         <section id="left-section">
             <div id="make-task">
                 <h1>Make a task</h1>
-                <h3>Date</h3>
-                <textarea id="input-date"></textarea>
+                <h3>Due Date</h3>
+                <input type="date" id="input-date"/>
                 <h3>Title</h3>
                 <textarea id="input-title"></textarea>
                 <h3>Description</h3>
                 <textarea id="input-description"></textarea>
                 <h3>Tags</h3>
                 <textarea id="input-tags"></textarea>
+                <button id="add-task">Add Task</button>
+                <button id="delete-task">Delete Task</button>
             </div>
         </section>
         <section id="right-section">

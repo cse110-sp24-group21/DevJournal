@@ -1,10 +1,10 @@
 import { storage } from './storage.js';
 
 let tasks; // The variable we'll use to add our array of objects we fetch
-let taskURL = '../assets/json/tasklist.json'; // the URL to fetch from
+let taskURL = './assets/json/tasklist.json'; // the URL to fetch from
 const tasklistContainer = document.getElementById("task-list");   // determine the tasklist container
-const addTaskButton = tasklistContainer.querySelector(".add-task");  // get an add task button
-const deleteTaskButton = tasklistContainer.querySelector(".delete-task");  // get a delete task button
+const addTaskButton = document.getElementById("add-task");  // get an add task button
+const deleteTaskButton = document.getElementById("delete-task");  // get a delete task button
 
 // Bind the init() function to run once the page loads
 window.addEventListener('DOMContentLoaded', init);
@@ -81,27 +81,48 @@ function populatePage() {
  * from cart buttons get pressed
  */
 function bindUpdates() {
-  addTaskButton.addEventListener('addNewTask', () => { createTaskElement() });
+  addTaskButton.addEventListener('click', () => { addTask() });
   // deleteTaskButton.addEventListener('deleteSelectedTasks', () => { deleteSelectedTasks() });
 }
 
 //Creates new task elements
 function createTaskElement(){
     // storage.addItem('task', id) cart update
-    inputTitle = document.getElementById("input-title");
-    inputDate = document.getElementById("input-date");
-    inputDescription = document.getElementById("input-description");
-    inputTags = document.getElementById("input-tags");
-    currDate = new Date()
-    const taskObject = {
-      id: Math.floor(Math.random() * 2000000),
-      title: inputTitle.value,
-      assignDate: currDate.value.toISOString(),
-      dueDate: inputDate.value.toISOString(),
-      description: inputDescription.value,
-      tags: inputTags.value.split(' ')
-    };
-    return taskObject;
+    const inputTitle = document.getElementById("input-title").value;
+    const inputDate = document.getElementById("input-date").value;
+    const inputDescription = document.getElementById("input-description").value;
+    const inputTags = document.getElementById("input-tags").value;
+    let currDate = new Date();
+    try {
+      let darr = inputDate.split("-");
+      let dobj = new Date(parseInt(darr[0]),parseInt(darr[1])-1,parseInt(darr[2]));
+      let dueDate = dobj.toISOString()
+      let taskObject = {
+        id: Math.floor(Math.random() * 2000000),
+        title: inputTitle,
+        assignDate: currDate.toISOString(),
+        dueDate: dueDate,
+        description: inputDescription,
+        tags: ((inputTags == '') ? [] : inputTags.split(' '))   // might have some trouble with this method (whitespaces)
+      };
+      console.log(taskObject);
+      return taskObject;
+    } catch (err) {
+      console.log(`Invalid Due Date`);
+      return;
+    }
+}
+
+//Adds new Notes to page
+function addTask(){
+
+  const tasklist = getTasks();
+  const taskElement = createTaskElement();
+  if (!taskElement) {
+    tasklist.push(taskElement);
+  }
+  localStorage.setItem('tasklist', JSON.stringify(tasklist));
+  console.log(localStorage)
 }
 
 //Updates Task with new given content
@@ -115,7 +136,7 @@ function updateTask(id, newContent) {
 
 //Get all the tasks from local storage
 function getTasks() {
-    return storage.getItems('tasks');
+    return storage.getItems('tasklist');
 }
 
 //Get a certain task based of id

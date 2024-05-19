@@ -140,4 +140,4 @@ class TaskElement extends HTMLElement {
     }
   }
   
-  customElements.define('product-item', ProductItem);
+  customElements.define('product-item', TaskElement);
