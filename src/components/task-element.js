@@ -1,6 +1,6 @@
-// task-item.js
+// task-element.js
 
-class TaskItem extends HTMLElement {
+class TaskElement extends HTMLElement {
     constructor() {
       super(); // inherets everything from HTMLElement
       this.attachShadow({ mode: 'open' }); // Creates the Shadow DOM
