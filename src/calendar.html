@@ -6,6 +6,7 @@
     <title>Developer Journal</title>
     <!-- External Files -->
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/calendar.css">
 </head>
 <body id="main-page">
     <nav>
@@ -18,18 +19,12 @@
         </ul>
     </nav>
     <main>
-        <div class="container-calendar">
-			<div id="right">
+        <div class="left-container">
+			<div id="mini-calendar">
 				<h3 id="monthAndYear"></h3>
 				<div class="button-container-calendar">
-					<button id="previous"
-							onclick="previous()">
-						‹
-					</button>
-					<button id="next"
-							onclick="next()">
-						›
-					</button>
+					<button id="previous" onclick="previous()">Prev</button>
+					<button id="next" onclick="next()">Next</button>
 				</div>
 				<table class="table-calendar"
 					id="calendar"
@@ -59,6 +54,12 @@
 					<select id="year" onchange="jump()"></select>
 				</div>
 			</div>
+            <div id="upcoming-container">
+                <h3 id="upcoming-header">Upcoming Tasks</h3>
+            </div>
+        </div>
+        <div class="right-container">
+            
         </div>
     </main>
     <script src="scripts/calendar.js"></script>

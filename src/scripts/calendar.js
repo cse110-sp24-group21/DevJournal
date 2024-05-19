@@ -1,10 +1,4 @@
-// script.js
-
-// Define an array to store events
 let events = [];
-
-// Counter to generate unique event IDs
-let eventIdCounter = 1;
 
 // Function to generate a range of 
 // years for the year select input
@@ -43,19 +37,16 @@ $dataHead += "</tr>";
 
 document.getElementById("thead-month").innerHTML = $dataHead;
 
-monthAndYear =
-	document.getElementById("monthAndYear");
+monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
 
-// Function to navigate to the next month
+// Function to navigate between next/prev months
 function next() {
-	currentYear = currentMonth === 11 ?
-		currentYear + 1 : currentYear;
+	currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
 	currentMonth = (currentMonth + 1) % 12;
 	showCalendar(currentMonth, currentYear);
 }
 
-// Function to navigate to the previous month
 function previous() {
 	currentYear = currentMonth === 0 ?
 		currentYear - 1 : currentYear;
@@ -107,8 +98,6 @@ function showCalendar(month, year) {
 				) {
 					cell.className = "date-picker selected";
 				}
-
-				// Check if there are events on this date
 				if (hasEventOnDate(date, month, year)) {
 					cell.classList.add("event-marker");
 					cell.appendChild(
@@ -124,7 +113,7 @@ function showCalendar(month, year) {
 	}
 }
 
-// Function to get events on a specific date
+// Get events on specific date
 function getEventsOnDate(date, month, year) {
 	return events.filter(function (event) {
 		let eventDate = new Date(event.date);
@@ -136,7 +125,7 @@ function getEventsOnDate(date, month, year) {
 	});
 }
 
-// Function to check if there are events on a specific date
+// Check if there are events on specific date
 function hasEventOnDate(date, month, year) {
 	return getEventsOnDate(date, month, year).length > 0;
 }
