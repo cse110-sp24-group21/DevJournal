@@ -1,10 +1,9 @@
-/* styles.css */
-
-/* General styling for the entire page */
 body {
-	font-family: Arial, sans-serif;
-	background-color: white;
-	margin: 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+main {
+    display: flex;
 }
 
 .wrapper {
@@ -14,6 +13,7 @@ body {
 
 /* Calendar container */
 .left-container {
+    background-color: white;
 	background: #ffffff;
 	padding: 15px;
 	width: 0.3w;
@@ -21,7 +21,7 @@ body {
 	overflow: auto;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	display: inline-block;
-    height: 100vh;
+    height: 100%;
 }
 
 .right-container {
@@ -80,7 +80,7 @@ body {
 
 /* Hover effect for date cells */
 .date-picker:hover {
-	background-color: purple;
+	background-color: #102937;
 	color: white;
 	cursor: pointer;
 }
@@ -115,4 +115,22 @@ body {
 	border: 1px solid #bfc5c5;
 	border-radius: 3px;
 	padding: 5px 1em;
+}
+
+.hourly-schedule {
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 15px;
+    padding-left: 15px;
+}
+
+.event {
+    width: 60vw;
+    padding-bottom: 15px;
+}
+
+#hours li {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 15px;
 }
